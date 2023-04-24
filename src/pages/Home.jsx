@@ -23,7 +23,7 @@ const Home = () => {
         'All News'
     ]
     return (
-        <main className="container grid grid-cols-[_1fr_2fr_1fr] text-left gap-[24px] ">
+        <main className="container grid md:grid-cols-[_1fr_2fr_1fr]  text-left gap-[24px] ">
             <aside>
                 <p className="text-[20px] text-[#403F3F] mb-[20px]">All Caterogy</p>
                 <div className="category-list flex flex-col">

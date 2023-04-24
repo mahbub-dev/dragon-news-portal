@@ -17,7 +17,7 @@ const Navbar = () => {
                 />
             </div>
             <div
-                className={`flex absolute md:opacity-100 opacity-${toggle ? 100 : 0} rounded transition-[opacity] ease-in-out delay-100 flex-col md:flex-row top-[60px] md:bg-transparent bg-black md:p-0 p-[2rem] md:static  gap-2`}
+                className={`flex absolute md:visible ${toggle ? 'visible' : 'invisible'} rounded transition-[visibility] ease-in-out delay-100 flex-col md:flex-row top-[60px] md:bg-transparent bg-black md:p-0 p-[2rem] md:static  gap-2`}
             >
                 <Link className="text-[#706F6F] text-[18px]">Home</Link>
                 <Link className="text-[#706F6F] text-[18px]">About</Link>
@@ -28,9 +28,9 @@ const Navbar = () => {
                     <img src={user} alt="user" />
                 </div>
 
-                <button className="login btn bg-[#403F3F] text-[20px] text-[#FFFFFF] py-[16px] px-[43px]">
+                <Link to={'/login'} className="login btn bg-[#403F3F] text-[20px] text-[#FFFFFF] py-[5px] px-[43px]">
                     Login
-                </button>
+                </Link>
             </div>
         </div>
     )

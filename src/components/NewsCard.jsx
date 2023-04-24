@@ -38,7 +38,7 @@ const NewsCard = ({ item }) => {
                        – U.S. President Joe Biden has announced nearly $3 billion
                         in new U.S. military a`)}
                 </p>
-                <Link className='text-[#FF8A54] mb-[20px]'>Read More</Link>
+                <Link className='text-[#FF8A54] mb-[20px]' to={'/news/idk'}>Read More</Link>
                 <hr className='bg-[#E7E7E7] h-[1px]' />
 
                 <div className='flex justify-between py-[20px]'>
