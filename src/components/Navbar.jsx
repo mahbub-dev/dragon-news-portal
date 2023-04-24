@@ -6,7 +6,7 @@ import { useState } from "react"
 const Navbar = () => {
     const [toggle, setToggle] = useState(false)
     return (
-        <div className="navbar relative container flex justify-between items-center">
+        <div className="navbar mb-[20px] md:mb-[76px] relative container flex justify-between items-center">
             <div>
                 <img
                     width={'65px'}
@@ -16,7 +16,9 @@ const Navbar = () => {
                     alt="bar"
                 />
             </div>
-            <div className={`links flex absolute transition-[left] ease-in-out delay-100 flex-col md:flex-row top-[60px] left-[${toggle ? '20px' : '-200px'}] md:bg-transparent bg-black md:p-0 p-[2rem] md:static  gap-2`}>
+            <div
+                className={`flex absolute md:opacity-100 opacity-${toggle ? 100 : 0} rounded transition-[opacity] ease-in-out delay-100 flex-col md:flex-row top-[60px] md:bg-transparent bg-black md:p-0 p-[2rem] md:static  gap-2`}
+            >
                 <Link className="text-[#706F6F] text-[18px]">Home</Link>
                 <Link className="text-[#706F6F] text-[18px]">About</Link>
                 <Link className="text-[#706F6F] text-[18px]">Career</Link>
