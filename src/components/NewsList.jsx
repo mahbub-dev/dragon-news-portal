@@ -5,6 +5,8 @@ const NewsList = () => {
     return (
         <>
             <NewsCard item={data} />
+            <NewsCard item={data} />
+            <NewsCard item={data} />
         </>
     )
 }

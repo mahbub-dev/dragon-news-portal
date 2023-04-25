@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
+import { Outlet, useLocation, useNavigate } from "react-router-dom"
 import RightSideBar from "../components/RightSideBar"
-import { Outlet, useNavigate, useLocation } from "react-router-dom"
+import RelateNewsCard from "../components/RelateNewsCard"
 const Home = () => {
     const navigate = useNavigate()
     const location = useLocation().pathname.split('/')[1].replace('_', ' ')
@@ -34,6 +35,12 @@ const Home = () => {
                         </button>
                     )}
                 </div>
+                <div className="flex flex-col gap-3 mt-[30px]">
+                    <RelateNewsCard />
+                    <RelateNewsCard />
+                    <RelateNewsCard />
+                </div>
+
             </aside>
             <div>
                 <p className="text-[20px] text-[#403F3F] mb-[20px]">Dragon News Home</p>

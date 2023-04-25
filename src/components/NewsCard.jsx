@@ -9,7 +9,7 @@ import viewIcon from '../assets/viewIcon.png'
 import star from '../assets/star.png'
 const NewsCard = ({ item }) => {
     return (
-        <div className="news_card border-solid border-[1px] border-[#E7E7E7] rounded">
+        <div className="news_card border-solid border-[1px] mb-[30px] border-[#E7E7E7] rounded">
             <div className='flex rounded items-center mb-[14px] gap-2 bg-[#F3F3F3] px-[20px] py-[16px]'>
                 <div>
                     <img src={publisherImg} alt="publisher" />

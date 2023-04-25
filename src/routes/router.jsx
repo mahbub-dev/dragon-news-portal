@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import App from "../App";
 import { Login, Register, Home, News } from "../pages";
 import NewsList from "../components/NewsList";
+import { changeBgColor } from "../utils";
 
 const router = createBrowserRouter([
 	{
@@ -26,10 +27,12 @@ const router = createBrowserRouter([
 			{
 				path: "/login",
 				element: <Login />,
+				loader: changeBgColor
 			},
 			{
 				path: "/register",
 				element: <Register />,
+				loader: changeBgColor
 			},
 		],
 	},

@@ -7,7 +7,7 @@ const Navbar = () => {
     const [toggle, setToggle] = useState(false)
     return (
         <div className="navbar mb-[20px] md:mb-[76px] relative container flex justify-between items-center">
-            <div>
+            <div className="md:w-[33%]">
                 <img
                     width={'65px'}
                     height={'65px'}
@@ -17,13 +17,15 @@ const Navbar = () => {
                 />
             </div>
             <div
-                className={`flex absolute md:visible ${toggle ? 'visible' : 'invisible'} rounded transition-[visibility] ease-in-out delay-100 flex-col md:flex-row top-[60px] md:bg-transparent bg-black md:p-0 p-[2rem] md:static  gap-2`}
+                className={`flex md:w-[33%] justify-center absolute md:visible ${toggle ? 'visible' : 'invisible'} 
+                rounded transition-[visibility] ease-in-out delay-100 flex-col md:flex-row top-[60px]
+                md:bg-transparent bg-black md:p-0 p-[2rem] md:static  gap-2`}
             >
                 <Link className="text-[#706F6F] text-[18px]">Home</Link>
                 <Link className="text-[#706F6F] text-[18px]">About</Link>
                 <Link className="text-[#706F6F] text-[18px]">Career</Link>
             </div>
-            <div className="flex items-center gap-2">
+            <div className="flex md:w-[33%] items-center justify-end gap-2">
                 <div className="user">
                     <img src={user} alt="user" />
                 </div>
