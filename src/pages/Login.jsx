@@ -1,13 +1,27 @@
 import { useState } from "react"
 import Input from "../components/Input"
+import { Link, useNavigate } from "react-router-dom"
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import app from "../../firebase.config";
+import { toast } from 'react-toastify';
 const Login = () => {
+  const navigate = useNavigate()
   const [loginData, setLoginData] = useState({ email: '', password: '' })
+  const auth = getAuth(app)
   const handleChange = (e) => {
     setLoginData(p => ({ ...p, [e.target.name]: e.target.value }))
   }
-  const handleSubmit =(e)=>{
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    console.log(loginData)
+    try {
+      await signInWithEmailAndPassword(auth, loginData.email, loginData.password)
+      navigate('/all_news')
+    } catch (error) {
+      const errorMessage = error.message;
+      console.log(errorMessage)
+      toast(errorMessage)
+      setLoginData({ email: '', password: '' })
+    }
   }
   return (
     <div className="container m-auto max-w-[606px] p-5 bg-white md:px-[73px] md:py-[76px]">
@@ -31,6 +45,10 @@ const Login = () => {
           onChange={handleChange}
         />
         <button type="submit" className="w-100 p-[20px] text-white mb-[24px] rounded bg-[#403F3F]">Login</button>
+        <p className="text-[#706F6F] font-[600]" >
+          <span >Dont’t Have An Account?</span>
+          <Link className="text-[#FF7D73]" to='/register'>Register</Link>
+        </p>
       </form>
     </div>
   )

@@ -3,6 +3,7 @@ import App from "../App";
 import { Login, Register, Home, News } from "../pages";
 import NewsList from "../components/NewsList";
 import { changeBgColor } from "../utils";
+import PrivateRoutes from "./PrivateRoutes";
 
 const router = createBrowserRouter([
 	{
@@ -26,12 +27,12 @@ const router = createBrowserRouter([
 			},
 			{
 				path: "/login",
-				element: <Login />,
+				element: <PrivateRoutes><Login /></PrivateRoutes>,
 				loader: changeBgColor
 			},
 			{
 				path: "/register",
-				element: <Register />,
+				element: <PrivateRoutes><Register /></PrivateRoutes>,
 				loader: changeBgColor
 			},
 		],

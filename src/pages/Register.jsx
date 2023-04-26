@@ -1,24 +1,36 @@
 import Input from "../components/Input"
 import { useState } from "react"
-
+// import app from "../../firebase.config"
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
+import app from "../../firebase.config";
+import { useNavigate } from "react-router-dom";
+import { toast } from 'react-toastify';
 const Register = () => {
+  const navigate = useNavigate()
   const [registerData, setRegisterData] = useState({ email: '', password: '', name: '', photo_url: '' })
   const [isAgree, setIsAgree] = useState(false)
+  const auth = getAuth(app)
   const handleChange = (e) => {
     setRegisterData(p => ({ ...p, [e.target.name]: e.target.value }))
   }
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
     if (isAgree) {
-      console.log(registerData)
+      try {
+        const userCredential = await createUserWithEmailAndPassword(auth, registerData.email, registerData.password)
+        const user = userCredential.user;
+        await updateProfile(user, { displayName: registerData.name, photoURL: registerData.photo_url })
+        navigate('/all_news')
+      } catch (error) {
+        toast(error.message)
+      }
     } else {
       alert('Please Accept Term & Conditions before Submit')
     }
-    console.log(registerData)
   }
   return (
     <div className="container m-auto max-w-[606px] p-5 bg-white md:px-[73px] md:py-[76px]">
-      <h1 className="md:text-[35px] text-[25px] font-[600] text-[#403F3F] ">Regiter your account</h1>
+      <h1 className="md:text-[35px] text-[25px] font-[600] text-[#403F3F] ">Register your account</h1>
       <hr className="border-solid border-[1px] my-6 md:my-[50px] border-[#E7E7E7]" />
       <form className="flex flex-col" onSubmit={handleSubmit}>
         <Input
