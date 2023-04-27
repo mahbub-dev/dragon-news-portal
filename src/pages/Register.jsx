@@ -1,7 +1,7 @@
 import Input from "../components/Input"
 import { useState } from "react"
 // import app from "../../firebase.config"
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import app from "../../firebase.config";
 import { useNavigate } from "react-router-dom";
 import { toast } from 'react-toastify';
@@ -25,7 +25,7 @@ const Register = () => {
         toast(error.message)
       }
     } else {
-      alert('Please Accept Term & Conditions before Submit')
+      toast('Please Accept Term & Conditions before Submit')
     }
   }
   return (

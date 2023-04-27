@@ -2,7 +2,6 @@ import { useContext } from "react"
 import { AuthContext } from "../provider/AuthProvider"
 import { getAuth, GoogleAuthProvider, GithubAuthProvider, signInWithPopup } from "firebase/auth";
 import app from "../../firebase.config";
-import { useNavigate } from "react-router-dom";
 import { toast } from 'react-toastify';
 const RightSideBar = () => {
     const auth = getAuth(app);

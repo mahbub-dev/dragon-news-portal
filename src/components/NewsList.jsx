@@ -4,9 +4,9 @@ const NewsList = () => {
     const data = useLoaderData()
     return (
         <>
-            <NewsCard item={data} />
-            <NewsCard item={data} />
-            <NewsCard item={data} />
+            {
+                data && data.map(i => <NewsCard key={i._id} item={i} />)
+            }
         </>
     )
 }
